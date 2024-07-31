@@ -6,18 +6,17 @@ jobs:
   terraform-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      # Code Kopieren
+      - name: checkout
         uses: actions/checkout@v4
-
-      - name: List files
-        run: ls -la terraform
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
         with:
           terraform_version: 1.9.3
 
-      - name: Configure AWS Credentials
+      # Bei AWS Authentifizieren
+      - name: Configure AWS Credentials 2
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-region: eu-central-1
